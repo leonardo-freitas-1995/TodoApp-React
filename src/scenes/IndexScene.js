@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router';
 import {Grid, Row, Col} from 'react-bootstrap';
 
-import {TodoList} from './../components/';
+import {VisibleTodoList} from './../containers/';
 
 class IndexScene extends React.Component{
     constructor(){
@@ -35,45 +35,12 @@ class IndexScene extends React.Component{
         this.setState({todoLists});
     }
 
-    componentWillMount(){
-        this.setState({todoLists: [
-            {
-                id: 1,
-                name: "To Study",
-                todos: [
-                    {
-                        id: 1,
-                        completed: true,
-                        text: "Study JavaScript"
-                    },
-                    {
-                        id: 2,
-                        completed: true,
-                        text: "Study ECMAScript 6"
-                    },
-                    {
-                        id: 3,
-                        completed: true,
-                        text: "Study React"
-                    },
-                    {
-                        id: 4,
-                        completed: false,
-                        text: "Study Redux"
-                    }
-                ]
-            }
-        ]})
-    }
-
     _mountTodoLists(){
-        return this.state.todoLists.map((todoList, index) => {
-            return (
-                <Col key={index} xs={12} md={6} lg={4}>
-                    <TodoList id={todoList.id} todos={todoList.todos} name={todoList.name} todoClick={this.onClickTodo.bind(this)}/>
-                </Col>
-            )
-        })
+        return (
+            <Col xs={12} md={6} lg={4}>
+                <VisibleTodoList id={1}/>
+            </Col>
+        )
     }
 }
 
