@@ -1,36 +1,7 @@
 import todos from './todos';
+import todoList from './todoList';
 
 export default (state = [], action) => {
-    if (!state.length){
-        return [
-            {
-                id: 1,
-                name: "To Study",
-                todos: [
-                    {
-                        id: 1,
-                        completed: true,
-                        text: "Study JavaScript"
-                    },
-                    {
-                        id: 2,
-                        completed: true,
-                        text: "Study ECMAScript 6"
-                    },
-                    {
-                        id: 3,
-                        completed: true,
-                        text: "Study React"
-                    },
-                    {
-                        id: 4,
-                        completed: false,
-                        text: "Study Redux"
-                    }
-                ]
-            }
-        ];
-    }
     switch(action.type){
         case 'ADD_TODO':
         case 'TOGGLE_TODO':
@@ -43,6 +14,13 @@ export default (state = [], action) => {
                     todos: todos(list.todos, action)
                 });
             });
+        case 'ADD_LIST':
+            action.id = state.length + 1;
+            console.log(action.id);
+            return [
+                ...state,
+                todoList(undefined, action)
+            ];
         default:
             return state
     }
