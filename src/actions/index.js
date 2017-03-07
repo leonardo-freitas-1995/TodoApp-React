@@ -1,4 +1,4 @@
 import {addTodo, toggleTodo} from './todo';
-import {addList} from './todoList';
+import {addList, changeFilter} from './todoList';
 
-export {addTodo, toggleTodo, addList};
+export {addTodo, toggleTodo, addList, changeFilter};

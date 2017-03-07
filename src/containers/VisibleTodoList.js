@@ -9,7 +9,8 @@ const mapStateToProps = (state, ownProps ) => {
     return {
         id: list.id,
         name: list.name,
-        todos: list.todos
+        todos: list.todos,
+        filter: list.filter
     }
 };
 

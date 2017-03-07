@@ -18,6 +18,7 @@ export default class TodoLists extends React.Component {
                 <Row>
                     {this._mountTodoLists()}
                     <Col xs={12} md={6} lg={4}>
+                        <br/><br/>
                         <FormGroup controlId="newTodo">
                             <ControlLabel>Nova lista</ControlLabel>
                             <FormControl
@@ -44,8 +45,8 @@ export default class TodoLists extends React.Component {
         return this.props.todoLists.map((todoList, index) => {
             return (
                 <Col key={index} xs={12} md={6} lg={4}>
-                    <TodoList id={todoList.id} name={todoList.name} todos={todoList.todos}
-                              todoClick={this.props.todoClick} addTodo={this.props.addTodo}/>
+                    <TodoList id={todoList.id} name={todoList.name} todos={todoList.todos} filter={todoList.filter}
+                              todoClick={this.props.todoClick} addTodo={this.props.addTodo} changeFilter={this.props.changeFilter}/>
                 </Col>
             )
         })

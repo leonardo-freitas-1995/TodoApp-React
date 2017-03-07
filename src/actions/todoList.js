@@ -4,3 +4,11 @@ export const addList = (name) => {
         name
     }
 };
+
+export const changeFilter = (id, filter) => {
+    return {
+        type: 'CHANGE_FILTER',
+        id,
+        filter
+    }
+};

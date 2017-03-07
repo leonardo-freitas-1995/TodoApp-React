@@ -16,11 +16,17 @@ export default (state = [], action) => {
             });
         case 'ADD_LIST':
             action.id = state.length + 1;
-            console.log(action.id);
             return [
                 ...state,
                 todoList(undefined, action)
             ];
+        case 'CHANGE_FILTER':
+            return state.map((todoListObject) => {
+                if (action.id !== todoListObject.id){
+                    return todoListObject;
+                }
+                return todoList(todoListObject, action)
+            });
         default:
             return state
     }
